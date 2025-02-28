@@ -1,0 +1,22 @@
+{
+  "name": "deepseek-life-coach",
+  "version": "1.0.0",
+  "description": "DeepSeek生活教练 - 基于DeepSeek R1 API的AI生活教练应用",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "deepseek",
+    "ai",
+    "life-coach",
+    "chatbot"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "node-fetch": "^2.6.9"
+  }
+}

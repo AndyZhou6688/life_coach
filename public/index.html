@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepSeek 生活教练</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <h1>DeepSeek 生活教练</h1>
+        </div>
+        <div class="actions">
+            <button id="exportBtn" class="btn"><i class="fas fa-download"></i> 导出数据</button>
+            <button id="newChatBtn" class="btn primary"><i class="fas fa-plus"></i> 新对话</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- 左侧边栏：对话历史 -->
+        <aside class="sidebar history-sidebar">
+            <div class="sidebar-header">
+                <h2>对话历史</h2>
+                <div class="search-box">
+                    <input type="text" id="historySearch" placeholder="搜索历史...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+            <div class="history-list" id="historyList">
+                <!-- 历史记录将通过JavaScript动态加载 -->
+            </div>
+        </aside>
+
+        <!-- 中间主区域：对话 -->
+        <main class="chat-area">
+            <div class="chat-container" id="chatContainer">
+                <!-- 欢迎消息 -->
+                <div class="message ai">
+                    <div class="message-content">
+                        <p>你好！我是DeepSeek生活教练。我在这里帮助你成长和进步。请分享你的想法、问题或困扰，我会尽力提供有建设性的建议。</p>
+                    </div>
+                    <div class="message-info">
+                        <span class="timestamp">刚刚</span>
+                    </div>
+                </div>
+                <!-- 对话消息将通过JavaScript动态加载 -->
+            </div>
+            
+            <div class="emotion-selector">
+                <span>选择你的情绪：</span>
+                <div class="emotion-buttons">
+                    <button class="emotion-btn" data-emotion="开心"><i class="far fa-smile"></i> 开心</button>
+                    <button class="emotion-btn" data-emotion="难过"><i class="far fa-sad-tear"></i> 难过</button>
+                    <button class="emotion-btn" data-emotion="生气"><i class="far fa-angry"></i> 生气</button>
+                    <button class="emotion-btn" data-emotion="焦虑"><i class="far fa-frown"></i> 焦虑</button>
+                    <button class="emotion-btn" data-emotion="平静"><i class="far fa-meh"></i> 平静</button>
+                </div>
+            </div>
+            
+            <div class="input-area">
+                <textarea id="userInput" placeholder="分享你的想法..."></textarea>
+                <button id="sendBtn" class="btn primary"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </main>
+
+        <!-- 右侧边栏：情绪分析 -->
+        <aside class="sidebar analysis-sidebar">
+            <div class="sidebar-header">
+                <h2>对话分析</h2>
+                <button id="analyzeBtn" class="btn">开始分析</button>
+            </div>
+            <div class="analysis-content">
+                <div class="chart-container">
+                    <canvas id="emotionChart"></canvas>
+                </div>
+                <div class="analysis-text">
+                    <h3>情绪分析</h3>
+                    <p id="emotionAnalysis">点击"开始分析"按钮查看你的情绪趋势。</p>
+                </div>
+                <div class="ai-insights">
+                    <h3>AI洞察</h3>
+                    <p id="aiInsights">分析后将显示AI对你情绪状态的洞察。</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- 加载状态指示器 -->
+    <div class="loading-indicator" id="loadingIndicator">
+        <div class="spinner"></div>
+        <p>正在思考...</p>
+    </div>
+
+    <!-- 错误提示 -->
+    <div class="error-toast" id="errorToast">
+        <i class="fas fa-exclamation-circle"></i>
+        <span id="errorMessage"></span>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
